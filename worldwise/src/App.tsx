@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import AppPage from "./pages/AppPage";
 import Products from "./pages/Products";
 import HomePage from "./pages/HomePage";
 import Pricing from "./pages/Pricing";
@@ -10,10 +11,11 @@ function App(): JSX.Element {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<HomePage></HomePage>} />
-          <Route path='products' element={<Products></Products>} />
-          <Route path='pricing' element={<Pricing></Pricing>} />
-          <Route path='*' element={<PageNotFound></PageNotFound>} />
+          <Route path="/" element={<HomePage></HomePage>} />
+          <Route path="app" element={<AppPage></AppPage>} />
+          <Route path="products" element={<Products></Products>} />
+          <Route path="pricing" element={<Pricing></Pricing>} />
+          <Route path="*" element={<PageNotFound></PageNotFound>} />
         </Routes>
       </BrowserRouter>
     </>
