@@ -1,12 +1,11 @@
 import AppNav from "../components/AppNav";
 
-function AppPage(): JSX.Element {
+function AppLayout() {
   return (
     <div>
       <AppNav></AppNav>
-      <h1>App page of the component.</h1>
+      <p>App</p>
     </div>
   );
 }
-
-export default AppPage;
+export default AppLayout;

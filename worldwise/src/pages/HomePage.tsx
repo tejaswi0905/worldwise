@@ -1,12 +1,26 @@
-import AppNav from "../components/AppNav";
+import { Link } from "react-router-dom";
+import styles from "./Homepage.module.css";
 import PageNav from "../components/PageNav";
 
-export default function HomePage(): JSX.Element {
+export default function Homepage() {
   return (
-    <div>
+    <main className={styles.homepage}>
       <PageNav></PageNav>
-      <AppNav></AppNav>
-      <h3>Home Page of the app</h3>
-    </div>
+      <section>
+        <h1>
+          You travel the world.
+          <br />
+          WorldWise keeps track of your adventures.
+        </h1>
+        <h2>
+          A world map that tracks your footsteps into every city you can think
+          of. Never forget your wonderful experiences, and show your friends how
+          you have wandered the world.
+        </h2>
+        <Link to="/app" className="cta">
+          Start tracking now
+        </Link>
+      </section>
+    </main>
   );
 }
