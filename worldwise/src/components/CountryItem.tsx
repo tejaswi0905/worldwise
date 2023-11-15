@@ -1,10 +1,13 @@
 import styles from "./CountryItem.module.css";
 
-function CountryItem({ country }) {
+type CountryType = {
+  country: string;
+};
+
+function CountryItem({ country }: CountryType): JSX.Element {
   return (
     <li className={styles.countryItem}>
-      <span>{country.emoji}</span>
-      <span>{country.country}</span>
+      <span>{country}</span>
     </li>
   );
 }

@@ -8,10 +8,12 @@ import Product from "./pages/Product";
 import PageNotFound from "./pages/PageNotFound";
 import { cities } from "./store/atoms/cities";
 import { isLoading } from "./store/atoms/isLoading";
-import { CityData } from "./types.ts/CityTypes";
 
 import { RecoilRoot, useSetRecoilState, useRecoilValue } from "recoil";
 import { useEffect } from "react";
+import CityList from "./components/CityList";
+import CountryList from "./components/CountryList";
+import City from "./components/City";
 const BASE_URL: string = "http://localhost:3000";
 
 function FetchCities(): JSX.Element {
@@ -33,11 +35,11 @@ function FetchCities(): JSX.Element {
     }
   }
 
-  console.log(useRecoilValue(cities));
-
   useEffect(() => {
     fetchCities();
   }, []);
+
+  console.log(useRecoilValue(isLoading));
 
   return <></>;
 }
@@ -50,14 +52,12 @@ function App(): JSX.Element {
         <Routes>
           <Route path="/" element={<Homepage></Homepage>} />
           <Route path="/app" element={<AppLayout></AppLayout>}>
-            <Route index element={<p>List of cities will come here</p>}></Route>
-            <Route
-              path="cities"
-              element={<p>List of cities will come here</p>}
-            ></Route>
+            <Route index element={<CityList></CityList>}></Route>
+            <Route path="cities" element={<CityList></CityList>}></Route>
+            <Route path="cities/:id" element={<City></City>}></Route>
             <Route
               path="countries"
-              element={<p>A list of countries will come here </p>}
+              element={<CountryList></CountryList>}
             ></Route>
             <Route path="form" element={<p>Form will come here</p>}></Route>
           </Route>
