@@ -16,7 +16,10 @@ type CityItemProp = {
 function CityItem({ city }: CityItemProp): JSX.Element {
   return (
     <li>
-      <Link className={styles.cityItem} to={`${city.id}`}>
+      <Link
+        className={styles.cityItem}
+        to={`${city.id}?lat=${city.position.lat}&lng=${city.position.lng}`}
+      >
         <span className={styles.emoji}>{city.emoji}</span>
         <h3 className={styles.name}>{city.cityName}</h3>
         <time className={styles.date}>{formatDate(city.date)}</time>

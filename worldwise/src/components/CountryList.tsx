@@ -1,8 +1,12 @@
 import { useRecoilValue } from "recoil";
-import styles from "./CountryList.module.css";
-import { cities } from "../store/atoms/cities";
-import { isLoading } from "../store/atoms/isLoading";
+
 import { CityData } from "../types.ts/CityTypes";
+
+import { isLoading } from "../store/atoms/isLoading";
+import { cities } from "../store/atoms/cities";
+
+import styles from "./CountryList.module.css";
+
 import Spinner from "./Spinner";
 import Message from "./Message";
 import CountryItem from "./CountryItem";
