@@ -1,8 +1,11 @@
 import styles from "./CityList.module.css";
+
 import { cities } from "../store/atoms/cities";
 import { isLoading } from "../store/atoms/isLoading";
 import { useRecoilValue } from "recoil";
+
 import { CityData } from "../types.ts/CityTypes";
+
 import CityItem from "./CityItem";
 import Spinner from "./Spinner";
 import Message from "./Message";

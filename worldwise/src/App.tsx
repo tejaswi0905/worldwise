@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import Homepage from "./pages/Homepage";
 import AppLayout from "./pages/AppLayout";
@@ -6,6 +6,8 @@ import Login from "./pages/Login";
 import Pricing from "./pages/Pricing";
 import Product from "./pages/Product";
 import PageNotFound from "./pages/PageNotFound";
+import Form from "./components/Form";
+
 import { cities } from "./store/atoms/cities";
 import { isLoading } from "./store/atoms/isLoading";
 
@@ -52,14 +54,17 @@ function App(): JSX.Element {
         <Routes>
           <Route path="/" element={<Homepage></Homepage>} />
           <Route path="/app" element={<AppLayout></AppLayout>}>
-            <Route index element={<CityList></CityList>}></Route>
+            <Route
+              index
+              element={<Navigate replace to="cities"></Navigate>}
+            ></Route>
             <Route path="cities" element={<CityList></CityList>}></Route>
             <Route path="cities/:id" element={<City></City>}></Route>
             <Route
               path="countries"
               element={<CountryList></CountryList>}
             ></Route>
-            <Route path="form" element={<p>Form will come here</p>}></Route>
+            <Route path="form" element={<Form></Form>}></Route>
           </Route>
           <Route path="/login" element={<Login></Login>} />
           <Route path="/Pricing" element={<Pricing></Pricing>} />
