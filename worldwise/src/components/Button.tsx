@@ -1,6 +1,6 @@
 type PropsType = {
   children: any;
-  onClick: any;
+  onClick?: any;
   type: any;
 };
 

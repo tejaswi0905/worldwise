@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
+import { RecoilRoot } from "recoil";
+
 import Homepage from "./pages/Homepage";
 import AppLayout from "./pages/AppLayout";
 import Login from "./pages/Login";
@@ -8,43 +10,11 @@ import Product from "./pages/Product";
 import PageNotFound from "./pages/PageNotFound";
 import Form from "./components/Form";
 
-import { cities } from "./store/atoms/cities";
-import { isLoading } from "./store/atoms/isLoading";
+import FetchCities from "./cityServices/FetchCities";
 
-import { RecoilRoot, useSetRecoilState, useRecoilValue } from "recoil";
-import { useEffect } from "react";
 import CityList from "./components/CityList";
 import CountryList from "./components/CountryList";
 import City from "./components/City";
-const BASE_URL: string = "http://localhost:3000";
-
-function FetchCities(): JSX.Element {
-  const setCities = useSetRecoilState(cities);
-  const setIsLoading = useSetRecoilState(isLoading);
-
-  async function fetchCities() {
-    try {
-      setIsLoading(true);
-
-      const res = await fetch(`${BASE_URL}/cities`);
-      const data = await res.json();
-
-      setCities(data);
-    } catch {
-      alert("There was an error loading data...");
-    } finally {
-      setIsLoading(false);
-    }
-  }
-
-  useEffect(() => {
-    fetchCities();
-  }, []);
-
-  console.log(useRecoilValue(isLoading));
-
-  return <></>;
-}
 
 function App(): JSX.Element {
   return (
